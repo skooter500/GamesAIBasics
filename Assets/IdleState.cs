@@ -42,7 +42,7 @@ public class IdleState:State
         if ((enemyGameObject.transform.position - myGameObject.transform.position).magnitude < range)
         {
             // Is the leader inside my FOV
-            myGameObject.GetComponent<StateMachine>().SwicthState(new AttackingState(myGameObject, enemyGameObject));
+            myGameObject.GetComponent<StateMachine>().SwitchState(new AttackingState(myGameObject, enemyGameObject));
         }
     }
 }

@@ -117,7 +117,7 @@ public class SteeringBehaviours : MonoBehaviour {
         {
             return Vector3.zero;
         }
-        const float DecelerationTweaker = 0.0f;
+        float DecelerationTweaker = maxSpeed / 5.0f;
         float ramped = maxSpeed * (distance / (slowingDistance * DecelerationTweaker));
 
         float clamped = Mathf.Min(ramped, maxSpeed);

@@ -21,7 +21,7 @@ public class StateMachine:MonoBehaviour
         }
     }
 
-    public void SwicthState(State newState)
+    public void SwitchState(State newState)
     {
         if (currentState != null)
         {

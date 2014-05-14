@@ -28,7 +28,7 @@ class EvadeState:State
     {
         if (Vector3.Distance(myGameObject.transform.position, teasee.transform.position) > 30)
         {
-            myGameObject.GetComponent<StateMachine>().SwicthState(new TeaseState(myGameObject, teasee));
+            myGameObject.GetComponent<StateMachine>().SwitchState(new TeaseState(myGameObject, teasee));
         }
     }
 

@@ -39,7 +39,7 @@ class AttackingState:State
 
         if ((enemyGameObject.transform.position - myGameObject.transform.position).magnitude > range)
         {
-            myGameObject.GetComponent<StateMachine>().SwicthState(new IdleState(myGameObject, enemyGameObject));
+            myGameObject.GetComponent<StateMachine>().SwitchState(new IdleState(myGameObject, enemyGameObject));
         }
         else
         {

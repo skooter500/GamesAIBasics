@@ -1,72 +1,50 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-
-
 
 public class Path
 {
-    private List<Vector3> waypoints = new List<Vector3>();
-    private int next = 0;
+    public List<Vector3> Waypoints = new List<Vector3>();
+    public int next = 0;
     public bool draw;
 
-    public int Next
-    {
-        get { return next; }
-        set { next = value; }
-    }
-
-    public List<Vector3> Waypoints
-    {
-        get { return waypoints; }
-        set { waypoints = value; }
-    }
-
-    private bool looped;
-
-
-    public bool Looped
-    {
-        get { return looped; }
-        set { looped = value; }
-    }
+    public bool Looped;
 
     public void Draw()
     {
         if (draw)
         {
-            for (int i = 1; i < waypoints.Count(); i++)
+            for (int i = 1; i < Waypoints.Count; i++)
             {
-                Debug.DrawLine(waypoints[i - 1], waypoints[i], Color.cyan);
+                Debug.DrawLine(Waypoints[i - 1], Waypoints[i], Color.cyan);
             }
-            if (looped && (waypoints.Count() > 0))
+            if (Looped && (Waypoints.Count > 0))
             {
-                Debug.DrawLine(waypoints[0], waypoints[waypoints.Count() - 1], Color.cyan);
+                Debug.DrawLine(Waypoints[0], Waypoints[Waypoints.Count - 1], Color.cyan);
             }
         }
     }
 
     public Vector3 NextWaypoint()
     {
-        return waypoints[next];
+        return Waypoints[next];
     }
 
     public bool IsLast()
     {
-        return (next == waypoints.Count() - 1);
+        return (next == Waypoints.Count - 1);
     }
 
     public void AdvanceToNext()
     {
-        if (looped)
+        if (Looped)
         {
-            next = (next + 1) % waypoints.Count();
+            next = (next + 1) % Waypoints.Count;
         }
         else
         {
-            if (next != waypoints.Count() - 1)
+            if (next != Waypoints.Count - 1)
             {
                 next = next + 1;
             }

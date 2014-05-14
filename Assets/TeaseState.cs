@@ -30,7 +30,7 @@ public class TeaseState:State
         float distance = 5.0f;
         if (Vector3.Distance(myGameObject.transform.position, teasee.transform.position) < distance)
         {
-            myGameObject.GetComponent<StateMachine>().SwicthState(new EvadeState(myGameObject, teasee));
+            myGameObject.GetComponent<StateMachine>().SwitchState(new EvadeState(myGameObject, teasee));
         }
     }
 
