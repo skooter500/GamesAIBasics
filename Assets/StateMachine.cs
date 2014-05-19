@@ -16,7 +16,6 @@ public class StateMachine:MonoBehaviour
     {
         if (currentState != null)
         {
-            Debug.Log("Current state: " + currentState.Description());
             currentState.Update();
         }
     }
@@ -29,10 +28,12 @@ public class StateMachine:MonoBehaviour
         }
 
         currentState = newState;
+        Debug.Log("New bot state: " + newState.Description());
         if (newState != null)
         {
             currentState.Enter();
         }
     }
+
 }
 

@@ -7,7 +7,7 @@ public class Path
 {
     public List<Vector3> Waypoints = new List<Vector3>();
     public int next = 0;
-    public bool draw;
+    public bool draw = true;
 
     public bool Looped;
 
