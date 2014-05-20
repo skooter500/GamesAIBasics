@@ -6,7 +6,9 @@ using UnityEngine;
 
 public class StateMachine:MonoBehaviour
 {
-    State currentState;
+    public State currentState = null;
+    public State globalState = null;
+    public State previousState = null;
 
     void Start()
     {
@@ -14,10 +16,37 @@ public class StateMachine:MonoBehaviour
 
     public void Update()
     {
+        if (globalState != null)
+        {
+            globalState.Update();
+        }
         if (currentState != null)
         {
             currentState.Update();
         }
+    }
+
+    public void OnTriggerEnter(Collider collision)
+    {
+        Debug.Log(gameObject.tag + " collided with " + collision.gameObject.tag);
+
+        // See if one of the states will handle it
+        if (currentState != null && (currentState.HandleCollisionWith(collision.gameObject)))
+        {
+            return;
+        }
+        else
+        {
+            if (globalState != null)
+            {
+                globalState.HandleCollisionWith(collision.gameObject);
+            }
+        }
+    }
+
+    public void RevertToPreviousState()
+    {
+        SwitchState(previousState);
     }
 
     public void SwitchState(State newState)

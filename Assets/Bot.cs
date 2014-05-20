@@ -3,10 +3,11 @@ using System.Collections;
 
 public class Bot : MonoBehaviour {
     public int ammo;
+    public int health;
     
 	// Use this for initialization
 	void Start () {
-        // Add 5 random waypoints
+        // Add random waypoints
         for (int i = 0; i < 3; i++)
         {
             Vector3 pos = Random.insideUnitSphere * 20;
@@ -15,12 +16,20 @@ public class Bot : MonoBehaviour {
         }
 
         ammo = 10;
+        health = 10;
 	}
 
     // Update is called once per frame
     void Update()
     {
         GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
-        gameObject.GetComponent<TextMesh>().transform.rotation = camera.transform.rotation;
-	}
+        //gameObject.GetComponent<TextMesh>().transform.rotation = camera.transform.rotation;
+
+        /*GetComponent<TextMesh>().text =
+            "Health: " + health +
+            "Ammo: " + ammo +
+            "State: " + GetComponent<StateMachine>().currentState.Description();
+	
+         */
+    }
 }

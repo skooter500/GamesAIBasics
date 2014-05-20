@@ -48,8 +48,11 @@ class AttackingState:State
                 myGameObject.GetComponent<Bot>().ammo--;
                 GameObject lazer = new GameObject();
                 lazer.AddComponent<Lazer>();
+                lazer.AddComponent<SphereCollider>();
+                lazer.GetComponent<SphereCollider>().radius = 1;
                 lazer.transform.position = myGameObject.transform.position;
                 lazer.transform.forward = myGameObject.transform.forward;
+                lazer.tag = "lazer";
                 timeShot = 0.0f;
             }
         }

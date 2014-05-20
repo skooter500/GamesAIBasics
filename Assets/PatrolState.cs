@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class PatrolState:State
 {
-    static Vector3 initialPos = Vector3.zero;
-    Vector3 idlePos;
 
     public override string Description()
     {

@@ -4,6 +4,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
     public GameObject ammoPrefab;
+    public GameObject healthPrefab;
     public GameObject botPrefab;
 
 	// Use this for initialization
@@ -18,6 +19,16 @@ public class GameManager : MonoBehaviour {
             pos.y = 0;
             ammo.transform.position = pos;
             ammo.tag = "ammo";
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            GameObject health = (GameObject)Instantiate(healthPrefab);
+            health.renderer.material.color = Color.green;
+            Vector3 pos = Random.insideUnitSphere * 20;
+            pos.y = 0;
+            health.transform.position = pos;
+            health.tag = "health";
         }
 
         // Create a random team

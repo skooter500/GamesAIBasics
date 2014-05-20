@@ -16,4 +16,9 @@ public abstract class State
     public abstract void Exit();
 
     public abstract void Update();
+
+    public virtual bool HandleCollisionWith(GameObject other)
+    {
+        return false;
+    }
 }
