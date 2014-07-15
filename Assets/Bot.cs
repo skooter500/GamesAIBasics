@@ -25,11 +25,12 @@ public class Bot : MonoBehaviour {
         GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
         //gameObject.GetComponent<TextMesh>().transform.rotation = camera.transform.rotation;
 
-        /*GetComponent<TextMesh>().text =
+        TextMesh textMesh = GetComponentInChildren<TextMesh>();
+        textMesh.transform.rotation = Quaternion.identity;
+        textMesh.text =
             "Health: " + health +
             "Ammo: " + ammo +
             "State: " + GetComponent<StateMachine>().currentState.Description();
 	
-         */
     }
 }
