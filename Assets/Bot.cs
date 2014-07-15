@@ -21,6 +21,5 @@ public class Bot : MonoBehaviour {
     void Update()
     {
         GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
-        gameObject.GetComponent<TextMesh>().transform.rotation = camera.transform.rotation;
 	}
 }
